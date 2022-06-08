@@ -13,6 +13,11 @@
         <element id="directory" name="classes">
           <element id="module-output" name="Gestion-salles-resedence" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: jakarta.servlet:jakarta.servlet-api:5.0.0" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.29" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.19.4" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/Gestion-salles-resedence-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />

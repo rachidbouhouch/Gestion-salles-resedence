@@ -9,8 +9,11 @@ public class Chambre {
     private double prixParjour;
     private String EtatChambre;
     private String imagePath;
+    private int Etage;
 
-    public Chambre(String typeChambre, int nombreLit, int evalution, int nombrePersonne, double prixParjour, String etatChambre, String imagePath) {
+
+
+    public Chambre(String typeChambre, int nombreLit, int evalution, int nombrePersonne, double prixParjour, String etatChambre, String imagePath, int etage) {
         this.typeChambre = typeChambre;
         this.nombreLit = nombreLit;
         this.evalution = evalution;
@@ -18,6 +21,7 @@ public class Chambre {
         this.prixParjour = prixParjour;
         EtatChambre = etatChambre;
         this.imagePath = imagePath;
+        Etage = etage;
     }
 
     public int getId() {
@@ -26,6 +30,14 @@ public class Chambre {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getEtage() {
+        return Etage;
+    }
+
+    public void setEtage(int etage) {
+        Etage = etage;
     }
 
     public String getTypeChambre() {

@@ -30,7 +30,11 @@ public class DaoChambreImpl implements DaoChambre {
                             rs.getInt("nombrePersonne"),
                             rs.getDouble("prixParjour"),
                             rs.getString("EtatChambre"),
-                            rs.getString("imagePath"));
+                            rs.getString("imagePath"),
+                            rs.getInt("Etage")
+                            );
+                    chambre.setId(rs.getInt("id"));
+
                     chambres.add(chambre);
                 }
 
@@ -63,7 +67,9 @@ public class DaoChambreImpl implements DaoChambre {
                             rs.getInt("nombrePersonne"),
                             rs.getDouble("prixParjour"),
                             rs.getString("EtatChambre"),
-                            rs.getString("imagePath"));
+                            rs.getString("imagePath"),
+                            rs.getInt("Etage"));
+                    chambre.setId(rs.getInt("id"));
                     chambres.add(chambre);
                 }
 

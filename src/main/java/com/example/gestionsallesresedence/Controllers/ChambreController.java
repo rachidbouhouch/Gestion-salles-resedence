@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(urlPatterns = { "/listchambreFamily","/listchambreSingle"})
+@WebServlet(urlPatterns = { "/listchambreFamily","/listchambreSingle","/searchchambre"})
 public class ChambreController extends HttpServlet {
     private DaoChambre daoChambre;
     private ArrayList<Chambre> chambres;
@@ -26,8 +26,14 @@ public class ChambreController extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String checkin = req.getParameter("checkin");
+        String checkout = req.getParameter("checkout");
+        String nbrpersons=req.getParameter("numberofpersons");
         String path = req.getServletPath();
         chambres = new ArrayList<>();
+        if (nbrpersons == null){
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
+        }
 
         if (path.equals("/listchambreFamily")) {
             chambres = daoChambre.getListChambresFamily();
@@ -39,6 +45,10 @@ public class ChambreController extends HttpServlet {
             chambres=daoChambre.getListChambresSingle();
             req.getSession().setAttribute("chambres", chambres);
             System.out.println(chambres);
+            req.getRequestDispatcher("listRooms.jsp").forward(req, resp);
+        }
+        else if (path.equals("searchchambre")){
+            chambres=daoChambre.getListChambresSingle();
             req.getRequestDispatcher("listRooms.jsp").forward(req, resp);
         }
     }

@@ -8,21 +8,17 @@ public class Reservation {
     private int idChambre;
     private int idClient;
     private String DateDebut;
-    private String DateFin;
-    private int dureeSejour;
+    private int duree;
     private int nombrePersonne;
     private double priceTotal;
-    private boolean etat;
 
-    public Reservation(int idChambre, int idClient, String dateDebut, String dateFin, int dureeSejour, int nombrePersonne, double priceTotal, boolean etat) {
+    public Reservation(int idChambre, int idClient, String dateDebut, int duree, int nombrePersonne, double priceTotal) {
         this.idChambre = idChambre;
         this.idClient = idClient;
         DateDebut = dateDebut;
-        DateFin = dateFin;
-        this.dureeSejour = dureeSejour;
+        this.duree = duree;
         this.nombrePersonne = nombrePersonne;
         this.priceTotal = priceTotal;
-        this.etat = etat;
     }
 
     public int getId() {
@@ -57,20 +53,12 @@ public class Reservation {
         DateDebut = dateDebut;
     }
 
-    public String getDateFin() {
-        return DateFin;
+    public int getDuree() {
+        return duree;
     }
 
-    public void setDateFin(String dateFin) {
-        DateFin = dateFin;
-    }
-
-    public int getDureeSejour() {
-        return dureeSejour;
-    }
-
-    public void setDureeSejour(int dureeSejour) {
-        this.dureeSejour = dureeSejour;
+    public void setDuree(int duree) {
+        this.duree = duree;
     }
 
     public int getNombrePersonne() {
@@ -87,13 +75,5 @@ public class Reservation {
 
     public void setPriceTotal(double priceTotal) {
         this.priceTotal = priceTotal;
-    }
-
-    public boolean isEtat() {
-        return etat;
-    }
-
-    public void setEtat(boolean etat) {
-        this.etat = etat;
     }
 }

@@ -24,13 +24,13 @@
                     <label class="text-gray-600 mb-2 block">
                         First Name <span class="text-primary">*</span>
                     </label>
-                    <input type="text" name="prenom" class="input-box" placeholder="John" required>
+                    <input type="text" name="prenom" class="input-box" placeholder="rachid" required>
                 </div>
                 <div>
                     <label class="text-gray-600 mb-2 block">
                         Last Name <span class="text-primary">*</span>
                     </label>
-                    <input type="text" class="input-box" name="nom" placeholder="Doe" required>
+                    <input type="text" class="input-box" name="nom" placeholder="ait lhouss" required>
                 </div>
                 <div>
                     <label class="text-gray-600 mb-2 block">
@@ -43,10 +43,10 @@
                     <input type="password" class="input-box" name="password" placeholder="password" required>
                 </div>
             </div>
-            <div class="mt-4">
+            <div class="flex justify-center mt-4">
                 <button type="submit"
-                        class="block w-full py-2 text-center text-black bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium">
-                    create account
+                        >
+                    <a class="text-black bg-primary block w-full py-2 px-20 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium">create account</a>
                 </button>
             </div>
         </form>

@@ -12,7 +12,7 @@
 <html lang="en">
 <%@include file="header.jsp"%>
 <!-- breadcrum -->
-<div class="container py-4 flex justify-between">
+<div class="container py-4 flex justify-between ">
     <div class="flex gap-3 items-center">
         <a href="#" class="text-primary text-base">
             <i class="fas fa-home"></i>
@@ -32,10 +32,11 @@
             <!-- price filter -->
             <div class="pt-4">
                 <h3 class="text-xl text-gray-800 mb-3 uppercase font-medium">Informations :</h3>
+                <form method="post" action="searchchambre">
                 <div class="mt-4 flex items-center">
                     <input type="text"
-                           name="Checkin"
-                           placeholder="Check In"
+                           name="checkin"
+                           value="<c:out value="${checkin}"/>"
                            onfocus="(this.type='date')"
                            required
                            class="w-full border-gray-300 focus:ring-0 focus:border-primary px-3 py-1 text-gray-600 text-sm shadow-sm rounded"
@@ -43,33 +44,22 @@
 
                 </div>
                 <div class="mt-4 flex items-center">
-                    <input type="text"
-                           name="Checkout"
-                           placeholder="Check Out"
-                           onfocus="(this.type='date')"
+                    <input type="number"
+                           name="nbrnuits"
+                           placeholder="number of nights"
+                           value="<c:out value="${nbrnuits}"/>"
+                           min="1"
                            required
                            class="w-full border-gray-300 focus:ring-0 focus:border-primary px-3 py-1 text-gray-600 text-sm shadow-sm rounded"
                     >
-                </div>
-                <div class="mt-4 flex items-center">
-                    <select
-                            class="w-full border-gray-300 focus:ring-0 focus:border-primary px-3 py-1 text-gray-600 text-sm shadow-sm rounded"
-                            name="numberofpersons"
-                            required
-                    >
-
-                        <option disabled selected>Numbers of Persons</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4+">4+</option>
-                    </select>
                 </div>
                 <div class="mt-4 flex justify-end">
-                    <a href="shop.html" class="bg-primary border border-primary text-white px-6 py-2 ml-4 font-medium rounded-md uppercase hover:bg-transparent hover:text-primary transition">
-                        search
-                    </a></div>
+                        <button type="submit" >
+                        <a class="bg-primary border border-primary text-white px-6 py-2 ml-4 font-medium rounded-md uppercase hover:bg-transparent hover:text-primary transition">search</a>
+                    </button></div>
+                </form>
             </div>
+
             <!-- price filter end -->
         </div>
     </div>
@@ -83,29 +73,19 @@
                     class="bg-primary border border-primary text-white px-10 py-3 font-medium rounded uppercase hover:bg-transparent hover:text-primary transition lg:hidden text-sm mr-3 focus:outline-none">
                 Filter
             </button>
-            <select
-                    class="w-44 text-sm text-gray-600 px-4 py-3 border-gray-300 shadow-sm rounded focus:ring-primary focus:border-primary">
-                <option>Default sorting</option>
-                <option>Price low-high</option>
-                <option>Price high-low</option>
-                <option>Latest product</option>
-            </select>
             <div class="flex gap-2 ml-auto">
                 <div
                         class="border border-primary w-10 h-9 flex items-center justify-center text-white bg-primary rounded cursor-pointer">
                     <i class="fas fa-th"></i>
                 </div>
-                <div
-                        class="border border-gray-300 w-10 h-9 flex items-center justify-center text-gray-600 rounded cursor-pointer">
-                    <i class="fas fa-list"></i>
-                </div>
+
             </div>
         </div>
         <!-- sorting end -->
-        <c:forEach var="chambre" items="${chambres}" varStatus="satus">
 
             <!-- product wrapper -->
             <div class="grid lg:grid-cols-2 xl:grid-cols-3 sm:grid-cols-2 gap-6">
+                <c:forEach var="chambre" items="${chambres}" varStatus="satus">
                 <!-- single product -->
                 <div class="group rounded bg-white shadow overflow-hidden">
                     <!-- product image -->
@@ -113,7 +93,7 @@
                         <img src="assets/images/<c:out value="${chambre.getImagePath()}"></c:out>" class="w-full">
                         <div
                                 class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                            <a href="view.html"
+                            <a
                                class="text-white text-lg w-9 h-9 rounded-full bg-primary hover:bg-gray-800 transition flex items-center justify-center">
                                 <i class="fas fa-search"></i>
                             </a>
@@ -166,31 +146,28 @@ Etage:<c:out value="${chambre.getEtage()}"></c:out>
 
                         <div class="flex items-baseline mb-1 mt-3 space-x-2">
                             <p class="text-xl text-primary font-roboto font-semibold"><c:out value="${chambre.getPrixParjour()}"></c:out> DH</p>
-                            <p class="text-sm text-gray-400 font-roboto ">/day</p>
+                            <p class="text-sm text-gray-400 font-roboto ">/night</p>
                         </div>
-                        <div class="flex items-center">
-                            <div class="flex gap-1 text-sm text-yellow-400">
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                            </div>
-                            <div class="text-xs text-gray-500 ml-3">(150)</div>
-                        </div>
+
                     </div>
                     <!-- product content end -->
                     <!-- product button -->
-                    <a href="reserver"
-                       class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
-                        Book Now
-                    </a>
+                    <form action="reserver" method="post" >
+                        <div class="flex justify-center">
+                        <input type="hidden" name="idChambre" value="<c:out value="${chambre.getId()}"/>">
+                        <button type="submit"
+                           >
+                            <a class="block w-full py-1 px-20 mb-6 text-center text-white bg-primary border border-primary rounded-full hover:bg-transparent hover:text-primary transition">Book Now</a>
+                        </button></div>
+                    </form>
+
                     <!-- product button end -->
                 </div>
                 <!-- single product end -->
+                </c:forEach>
             </div>
             <!-- product wrapper end -->
-        </c:forEach>
+
 
 
     </div>

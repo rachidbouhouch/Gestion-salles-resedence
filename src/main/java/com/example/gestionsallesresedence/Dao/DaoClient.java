@@ -10,6 +10,7 @@ public interface DaoClient  {
     public boolean add(Client client);
     public int count();
     public Client get(String email);
+    public int getIdClientByEmail(String email);
     public boolean changePassword(String email ,String newPassword);
     public ArrayList<Client> getAll();
 }

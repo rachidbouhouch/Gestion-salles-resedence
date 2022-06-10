@@ -26,30 +26,39 @@ public class ChambreController extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String checkin = req.getParameter("checkin");
-        String checkout = req.getParameter("checkout");
-        String nbrpersons=req.getParameter("numberofpersons");
         String path = req.getServletPath();
         chambres = new ArrayList<>();
-        if (nbrpersons == null){
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
-        }
 
         if (path.equals("/listchambreFamily")) {
             chambres = daoChambre.getListChambresFamily();
             System.out.println(chambres);
+            req.getSession().setAttribute("checkin", "mm/dd/yyyy");
+            req.getSession().setAttribute("nbrnuits", 1);
             req.getSession().setAttribute("chambres", chambres);
             req.getRequestDispatcher("listRooms.jsp").forward(req, resp);
         }
         else if (path.equals("/listchambreSingle")){
             chambres=daoChambre.getListChambresSingle();
+            req.getSession().setAttribute("checkin", "mm/dd/yyyy");
+            req.getSession().setAttribute("nbrnuits", 1);
             req.getSession().setAttribute("chambres", chambres);
             System.out.println(chambres);
             req.getRequestDispatcher("listRooms.jsp").forward(req, resp);
         }
-        else if (path.equals("searchchambre")){
-            chambres=daoChambre.getListChambresSingle();
-            req.getRequestDispatcher("listRooms.jsp").forward(req, resp);
-        }
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String path = req.getServletPath();
+        String checkin = req.getParameter("checkin");
+        String nbrnuits = req.getParameter("nbrnuits");
+
+        if (path.equals("/searchchambre")){
+            chambres=daoChambre.getAllNotReserved();
+            req.getSession().setAttribute("checkin", checkin);
+            req.getSession().setAttribute("nbrnuits", nbrnuits);
+            req.getSession().setAttribute("chambres", chambres);
+            req.getRequestDispatcher("listRooms.jsp").forward(req, resp);}
     }
 }

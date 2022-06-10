@@ -61,7 +61,18 @@
                 <a href="changepassword" class="hover:text-primary transition capitalize block">change password</a>
             </div>
             <!-- single link end -->
+            <!-- single link -->
+            <div class="space-y-1 pl-8 pt-4">
+                <a href="myreservations"
+                   class="relative medium capitalize text-gray-800 font-medium hover:text-primary transition block">
+                    my réservations
+                    <span class="absolute -left-8 top-0 text-base">
+                            <i class="fas fa-gift"></i>
+                        </span>
+                </a>
 
+            </div>
+            <!-- single link end -->
             <!-- single link -->
             <div class="pl-8 pt-4">
                 <a href="logout"
@@ -145,8 +156,9 @@
             </div>
             <div class="mt-6">
                 <button type="submit"
-                        class="px-6 py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium">
-                    Save change
+                        >
+                    <a class="px-6 py-2 text-center text-white bg-primary border border-primary rounded hover:bg-transparent hover:text-primary transition uppercase font-roboto font-medium"
+                    >Save change</a>
                 </button>
             </div>
         </form>

@@ -28,7 +28,7 @@ public class LoginController extends HttpServlet {
         String password = req.getParameter("password");
         String type=req.getParameter("radio-type");
         HttpSession httpSession=null;
-        boolean connected=false;
+        boolean connected;
         boolean res=false;
 
         try {
@@ -46,6 +46,7 @@ public class LoginController extends HttpServlet {
             httpSession.setAttribute("type", type);
             req.getRequestDispatcher("index.jsp").forward(req, resp);
         } else {
+            connected=false;
             req.setAttribute("message", "L’adresse e-mail que vous avez saisi(e) n’est pas associé(e) à un compte");
             httpSession.setAttribute("connected", connected);
             req.getRequestDispatcher("login.jsp").forward(req, resp);

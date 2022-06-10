@@ -7,13 +7,9 @@
 <div class="bg-cover bg-no-repeat bg-center py-36 relative" style="background-image: url('assets/images/banner-bg.jpg')">
     <div class="container">
         <!-- banner content -->
-        <h1 class="xl:text-6xl md:text-5xl text-4xl text-gray-800 font-medium mb-4">
-            Best Collection For <br class="hidden sm:block"> Home Decoration
+        <h1 class="xl:text-6xl md:text-5xl text-4xl text-gray-800 font-medium  mb-4">
+            GET YOU RESERVE <br class="hidden text-primary sm:block"> NOW
         </h1>
-        <p class="text-base text-gray-600 leading-6">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa <br class="hidden sm:block">
-            assumenda aliquid inventore nihil laboriosam odio
-        </p>
         <!-- banner button -->
         <div class="mt-12">
             <form method="post" action="searchchambre">
@@ -23,26 +19,14 @@
                    onfocus="(this.type='date')"
                    required
                    class="bg-primary border border-primary text-white placeholder-white px-8 py-3 font-medium rounded-md uppercase">
-            <input type="text"
-                   name="checkout"
-                   placeholder="Check Out"
-                   onfocus="(this.type='date')"
+            <input type="number"
+                   name="nbrnuits"
+                   placeholder="Nombre de nuits"
+                   min="1"
                    required
                    class="bg-primary border border-primary placeholder-white text-white px-8 py-3 font-medium rounded-md uppercase">
-            <select
-                    class="bg-primary border border-primary text-white px-8 py-3 font-medium rounded-md uppercase"
-                    name="numberofpersons"
-                    required
-            >
-
-                <option disabled selected>Numbers of Persons</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4+">4+</option>
-            </select>
-            <button type="submit" class="bg-primary border border-primary text-white px-8 py-3 ml-4 font-medium rounded-md uppercase hover:bg-transparent hover:text-primary transition">
-                book now
+            <button type="submit">
+               <a class="bg-primary border border-primary text-white px-8 py-3 ml-4 font-medium rounded-md uppercase hover:bg-transparent hover:text-primary transition"> search</a>
             </button>
             </form>
         </div>
@@ -55,7 +39,7 @@
 <!-- categories -->
 <div class="container pb-16 py-16">
     <h2 class="text-2xl md:text-3xl font-medium text-gray-800 uppercase mb-6">Category</h2>
-    <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-3 content-center">
+    <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-3 place-items-center">
         <!-- single category -->
         <div class="relative group rounded-sm overflow-hidden">
             <img src="assets/images/SingleRoom.png" class="w-full">
@@ -78,63 +62,6 @@
     </div>
 </div>
 <!-- categories end -->
-
-<!-- top new arrival -->
-<div class="container pb-16">
-    <h2 class="text-2xl md:text-3xl font-medium text-gray-800 uppercase mb-6">top new arrival</h2>
-    <!-- product wrapper -->
-    <div class="grid lg:grid-cols-4 sm:grid-cols-2 gap-6">
-        <!-- single product -->
-        <div class="group rounded bg-white shadow overflow-hidden">
-            <!-- product image -->
-            <div class="relative">
-                <img src="assets/images/products/product9.jpg" class="w-full">
-                <div
-                        class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition">
-                    <a href="view.html"
-                       class="text-white text-lg w-9 h-9 rounded-full bg-primary hover:bg-gray-800 transition flex items-center justify-center">
-                        <i class="fas fa-search"></i>
-                    </a>
-                </div>
-            </div>
-            <!-- product image end -->
-            <!-- product content -->
-            <div class="pt-4 pb-3 px-4">
-                <a href="view.html">
-                    <h4 class="uppercase font-medium text-xl mb-2 text-gray-800 hover:text-primary transition">
-                        Guyer chair
-                    </h4>
-                </a>
-                <div class="flex items-baseline mb-1 space-x-2">
-                    <p class="text-xl text-primary font-roboto font-semibold">$45.00</p>
-                    <p class="text-sm text-gray-400 font-roboto line-through">$55.00</p>
-                </div>
-                <div class="flex items-center">
-                    <div class="flex gap-1 text-sm text-yellow-400">
-                        <span><i class="fas fa-star"></i></span>
-                        <span><i class="fas fa-star"></i></span>
-                        <span><i class="fas fa-star"></i></span>
-                        <span><i class="fas fa-star"></i></span>
-                        <span><i class="fas fa-star"></i></span>
-                    </div>
-                    <div class="text-xs text-gray-500 ml-3">(150)</div>
-                </div>
-            </div>
-            <!-- product content end -->
-            <!-- product button -->
-            <a href="#"
-               class="block w-full py-1 text-center text-white bg-primary border border-primary rounded-b hover:bg-transparent hover:text-primary transition">
-                Add to Cart
-            </a>
-            <!-- product button end -->
-        </div>
-        <!-- single product end -->
-
-    </div>
-    <!-- product wrapper end -->
-</div>
-<!-- top new arrival end -->
-
 <%@include file="footer.jsp"%>
 
 </body>

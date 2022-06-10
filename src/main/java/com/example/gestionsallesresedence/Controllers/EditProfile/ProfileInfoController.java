@@ -68,6 +68,7 @@ public class ProfileInfoController extends HttpServlet {
                 tmp= DaoClient.update(client);
                 if (tmp){
                     System.out.println("updated");
+                    resp.sendRedirect("/Gestion_salles_resedence_war_exploded/profileinfo");
                 }
                 else {
                     System.out.println("not updated");

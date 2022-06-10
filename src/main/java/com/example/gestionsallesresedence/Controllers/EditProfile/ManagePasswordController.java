@@ -49,6 +49,8 @@ public class ManagePasswordController extends HttpServlet {
             if (type.equals("client")){
                 if (DaoClient.changePassword(email,currentpassword)){
                     System.out.println("password Changed");
+                    resp.sendRedirect("/Gestion_salles_resedence_war_exploded/changepassword");
+
                 }
                 else {
                     System.out.println("password not changed");

@@ -141,6 +141,31 @@ public class DaoClientImpl implements DaoClient{
     }
 
     @Override
+    public int getIdClientByEmail(String email) {
+        Client client = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        Integer idClient=null;
+        String sqlQuery = "SELECT id from client where email=?";
+
+
+        try {
+            pstmt= BDSingleton.getConn().prepareStatement(sqlQuery);
+            pstmt.setString(1, email);
+            rs = pstmt.executeQuery();
+
+            if (rs.next())
+            {
+                idClient=rs.getInt("id");
+            }
+            rs.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return idClient;    }
+
+    @Override
     public boolean changePassword(String email, String newPassword) {
         PreparedStatement ps;
         ResultSet rs = null;
